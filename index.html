@@ -101,7 +101,7 @@
                     Features for a better experience
                 </h1>
                 <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-10 lg:mt-20 mt-10">
-                    <div class="lg:flex items-center gap-10 lg:hover:bg-[#f6f6f6] lg:p-5 lg:duration-500 lg:ease-out lg:transition lg:rounded-md">
+                    <div class="lg:flex items-center gap-10 lg:hover:bg-[#f6f6f6] lg:p-5 lg:duration-500 lg:ease-out lg:transition lg:rounded-md cursor-pointer">
                         <img src="/images/video.png" class="mx-auto " alt="">
                         <div>
                             <h1 class="lg:text-2xl text-xl font-bold lg:text-start text-center lg:mt-0 mt-5">
@@ -112,7 +112,7 @@
                             </p>
                         </div>
                     </div>
-                    <div class="lg:flex items-center gap-10 lg:hover:bg-[#f6f6f6] lg:p-5 lg:duration-500 lg:ease-out lg:transition lg:rounded-md">
+                    <div class="lg:flex items-center gap-10 lg:hover:bg-[#f6f6f6] lg:p-5 lg:duration-500 lg:ease-out lg:transition lg:rounded-md cursor-pointer">
                         <img src="/images/time.png" class="mx-auto" alt="">
                         <div>
                             <h1 class="lg:text-2xl text-xl font-bold lg:text-start text-center lg:mt-0 mt-5">
@@ -123,7 +123,7 @@
                             </p>
                         </div>
                     </div>
-                    <div class="lg:flex items-center gap-10 lg:hover:bg-[#f6f6f6] lg:p-5 lg:duration-500 lg:ease-out lg:transition lg:rounded-md">
+                    <div class="lg:flex items-center gap-10 lg:hover:bg-[#f6f6f6] lg:p-5 lg:duration-500 lg:ease-out lg:transition lg:rounded-md cursor-pointer">
                         <img src="/images/network.png" class="mx-auto" alt="">
                         <div>
                             <h1 class="lg:text-2xl text-xl font-bold lg:text-start text-center lg:mt-0 mt-5">
@@ -316,7 +316,13 @@
             </div>
         </div>
     </div>
-    
+    <div>
+    </div>
+    <div>
+        <!-- Implement the Back Top Top Button -->
+    <button id="to-top-button" onclick="goToTop()" title="Go To Top"
+    class="hidden fixed z-90 bottom-8 right-8 border-0 lg:w-16 w-10 lg:h-16 h-10 rounded-full drop-shadow-md bg-[#fb8e0b] text-white lg:text-3xl text-xl font-bold">&uarr;</button>
+    </div>
 </body>
 
 
@@ -326,5 +332,20 @@
              e.name = e.name === 'close' ? 'menu' : 'close' 
              navlinks.classList.toggle('-translate-x-full')
          }
+         var toTopButton = document.getElementById("to-top-button");
+
+        // When the user scrolls down 200px from the top of the document, show the button
+        window.onscroll = function () {
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                toTopButton.classList.remove("hidden");
+            } else {
+                toTopButton.classList.add("hidden");
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function goToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
 </script>
 </html>
